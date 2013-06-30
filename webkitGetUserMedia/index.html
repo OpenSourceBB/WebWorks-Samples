@@ -1,0 +1,13 @@
+<canvas id="canvas" width="300" height="500"></canvas>
+<video id="video" style="display: none;" autoplay="autoplay"></video>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var video = document.getElementById("video");
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext('2d')
+navigator.webkitGetUserMedia({video: true}, function(stream) {
+video.src = window.URL.createObjectURL(stream);
+setInterval(function () {ctx.drawImage(video, 0, 0, 300, 500);}, 20) 
+})
+})
+</script>
